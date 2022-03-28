@@ -1,5 +1,4 @@
 const container = document.getElementById('container');
-const cell = document.querySelector('.cell');
 const sketchBtn = document.querySelector('.sketch');
 const toggleBtn = document.querySelector('.toggle');
 
@@ -32,8 +31,16 @@ container.addEventListener('mouseover', (e) => {
     e.target.style.backgroundColor = '#000000';
 });
 
-toggleBtn.addEventListener('click', (e) => {
-    cell.classList.add('grid');
+function grid() {
+    const cells = document.querySelectorAll('.cell');
+
+    for (let i = 0; i < cells.length; i++) {
+        cells[i].classList.toggle('grid');
+    }
+}
+
+toggleBtn.addEventListener("click", function() {
+    grid();
 });
 
 sketchBtn.addEventListener('click', (e) => {
